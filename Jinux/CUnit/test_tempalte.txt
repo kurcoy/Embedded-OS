@@ -1,0 +1,20 @@
+//--------------------------  test_template  --------------------------------//
+#include <test.h>
+#ifdef __WHITEBOX_TEST
+
+__INIT_SUITE(suitename)   {return 0;}
+__CLEAN_SUITE(suitename)  {return 0;}
+
+__IMPLEMENT_TEST(testname)
+{
+}
+
+__BEGIN_TESTMAP_OF_SUITE(suitename)
+    __REG_TEST(testname)
+__END_TESTMAP()
+
+#endif
+
+__DECLARE_SUITE(suitename)
+__REG_SUITE(suitename)
+//------------------------ end test_template  -------------------------------//
