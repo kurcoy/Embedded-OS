@@ -18,6 +18,7 @@
 #include <shell.h>
 //#include <debug.h>
 #include <task.h>
+#include <windows.h>
 //#include <dmnLib.h>
 //#include <logLib.h>
 //#include <ttyLib.h>
@@ -208,6 +209,12 @@ readline(void)
 //        if (consoleFd == 0xffffffff)
 //        {
 //            extern int32_t bsp_getchar(void);
+
+                if ((c = getch()) == 0)
+                {
+                    Sleep(100);
+                    continue;
+                }
 //            if ((c = bsp_getchar()) == 0)
 //            {
 //                taskDelay(MS2TICK(100));

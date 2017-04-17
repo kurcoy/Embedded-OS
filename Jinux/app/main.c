@@ -50,17 +50,53 @@
 #include <test.h>
 #include <task.h>
 #include <shell.h>
+#include <windows.h>
+
+
 
 int main(void)
 {
     puts("_______________start_________________________");
-    __DO_WHITEBOX_TEST();
+   // __DO_WHITEBOX_TEST();
     puts("_______________end_________________________");
+    extern status_t
+    shell_init(void);
 
-    char ch;
-    ch = getchar();
+
+    shell_init();
+
+    while(1);
+    {
+        Sleep(1000);
+    }
     return EXIT_SUCCESS;
 }
+
+
+/**
+ ******************************************************************************
+ * @brief   重启命令
+ * @param[in]  *cmdtp   : shell命令信息
+ * @param[in]  argc     : 命令行参数数量
+ * @param[in]  *argv[]  : 命令行参数内容
+ *
+ * @retval  命令执行状态
+ ******************************************************************************
+ */
+static uint32_t
+do_reboot(cmd_tbl_t * cmdtp,
+        uint32_t argc,
+        const uint8_t *argv[])
+{
+    //bsp_reboot();
+    printf("reboot\n");
+    return 1;
+}
+
+SHELL_CMD(
+    reboot, CFG_MAXARGS, (SHELL_CMD_FUNCPTR)do_reboot,
+    "reboot \n"
+);
 
 
 #ifdef __WHITEBOX_TEST

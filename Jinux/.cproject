@@ -39,7 +39,7 @@
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.945901346" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool command="gcc -T C:\\Users\\JunGeGe\\Documents\\GitHub\\Embedded-OS\\Jinux\\GermanyMeter_i386pe.x" id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.326766168" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug">
+							<tool command="gcc -T C:\\Users\\JunGeGe\\Documents\\GitHub\\Embedded-OS\\Jinux\\JunGe_i386pe.x" id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.326766168" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug">
 								<option id="gnu.c.link.option.libs.757541792" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="CUnit"/>
 								</option>
