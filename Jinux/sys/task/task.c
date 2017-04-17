@@ -11,6 +11,9 @@
  Section: Includes
  ----------------------------------------------------------------------------*/
 #include <types.h>
+#include <task.h>
+#include <test.h>
+#include <windows.h>
 
 /*-----------------------------------------------------------------------------
  Section: Type Definitions
@@ -45,6 +48,17 @@
 /*-----------------------------------------------------------------------------
  Section: Function Definitions
  ----------------------------------------------------------------------------*/
+#ifdef __WHITEBOX_TEST
+__INIT_SUITE(task)   {return 0;}
+__CLEAN_SUITE(task)  {return 0;}
+
+__DECLARE_TEST(taskSpawn)
+
+__BEGIN_TESTMAP_OF_SUITE(task)
+__REG_TEST(taskSpawn)
+__END_TESTMAP()
+#endif
+
 /**
  ******************************************************************************
  * @brief   任务创建方法
@@ -59,9 +73,7 @@
  * @retval  >=0  : 任务创建成功，返回任务优先级
  ******************************************************************************
  */
-/*TASK_ID*/
-
-uint8_t
+TASK_ID
 taskSpawn(
     char_t *    name,       /* name of new task */
     uint8_t     priority,   /* priority of new task */
@@ -70,8 +82,8 @@ taskSpawn(
     OSFUNCPTR   entryPt,    /* entry point32_t of new task */
     int32_t     arg)         /* task args to pass to func */
 {
- //   unsigned tid;
- //   HANDLE handle;
+    uint32_t tid;
+    HANDLE handle;
 
 //    if(priority > (MAXNUM_OF_TASKS - 1))
 //    {
@@ -85,20 +97,20 @@ taskSpawn(
 //        return -1;
 //    }
 
-////  避免使用 CreateThread   ExitThread  TerminateThread
-//    handle = (void*)_beginthreadex(
-//            NULL,
-//            stackSize,
-//            (void *) entryPt,
-//            (void *)arg,
-//            0,
-//            &tid);
+//  避免使用 CreateThread   ExitThread  TerminateThread
+    handle = (void*)_beginthreadex(
+            NULL,
+            stackSize,
+            (void *) entryPt,
+            (void *)arg,
+            0,
+            &tid);
 
-//    if(handle == 0)
-//    {
-//        __PRINTF_("err _beginthreadex err priority %d\n", priority);
-//        return -1;
-//    }
+    if(handle == 0)
+    {
+        printf("err _beginthreadex err priority %d\n", priority);
+        return -1;
+    }
 
 //    _window_task_id[priority] = tid;
 //    _window_task_name[priority] = name;
@@ -112,6 +124,37 @@ taskSpawn(
 //    __PRINTF_("\n");
     return priority;
 }
+
+#ifdef __WHITEBOX_TEST
+
+void shell_loop()
+{
+    while(1)
+    {
+        printf("jjj\n");
+        Sleep(1000);
+    }
+}
+__IMPLEMENT_TEST(taskSpawn)
+{
+    CU_PASS("");
+
+    static TASK_ID shellTaskId = -1;
+    static uint32_t shellstack[100 / 4];
+
+    printf("taskSpawn\n");
+    shellTaskId = taskSpawn("shell", 0, shellstack,
+            shellstack, (OSFUNCPTR)shell_loop, 0);
+
+}
+#endif
+
+
+
+
+
+
+
 
 
 /*----------------------------task.c--------------------------------*/

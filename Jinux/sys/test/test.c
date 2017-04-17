@@ -70,6 +70,8 @@
 //__DECLARE_SUITE(thread)
 
 __DECLARE_SUITE(main)
+__DECLARE_SUITE(task)
+
 
 /*-----------------------------------------------------------------------------
  Section: Local Function Prototypes
@@ -79,14 +81,13 @@ __DECLARE_SUITE(main)
 /*-----------------------------------------------------------------------------
  Section: Local Variables
  ----------------------------------------------------------------------------*/
-__BEGIN_SUITEMAP_OF_TESTBOOK(windons)
-    __REG_SUITE(main)
-//    __REG_SUITE(sysinfo)
-//    __REG_SUITE(process)
-//    __REG_SUITE(syserr)
-//    __REG_SUITE(thread)
+__BEGIN_SUITEMAP_OF_TESTBOOK(sys)
+    __REG_SUITE(task)
 __END_SUITEMAP()
 
+__BEGIN_SUITEMAP_OF_TESTBOOK(other)
+    __REG_SUITE(main)
+__END_SUITEMAP()
 
 /*-----------------------------------------------------------------------------
  Section: Function Definitions
@@ -103,7 +104,7 @@ __do_test_fun(void)
     assert(NULL != CU_get_registry()); 			//∑µªÿ≤‚ ‘≤æ÷∏’Î
     assert(!CU_is_test_running());    			//ºÏ≤‚ «∑Ò‘⁄÷¥––
 
-    if(CUE_SUCCESS != CU_register_suites(__TESTBOOK(windons)))
+    if(CUE_SUCCESS != CU_register_suites(__TESTBOOK(sys)))
     {
         printf("CU_get_error_msg:%s\n", CU_get_error_msg());
         CU_cleanup_registry();

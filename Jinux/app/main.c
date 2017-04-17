@@ -48,16 +48,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <test.h>
-
+#include <task.h>
+#include <shell.h>
 
 int main(void)
 {
     puts("_______________start_________________________");
-
     __DO_WHITEBOX_TEST();
-
     puts("_______________end_________________________");
 
+    char ch;
+    ch = getchar();
     return EXIT_SUCCESS;
 }
 

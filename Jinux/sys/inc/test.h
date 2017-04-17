@@ -13,8 +13,8 @@
     #include <CUnit\console.h>
 
     //------------------------------ 测试用例 --------------------------------//
-//  #define __DECLARE_TEST(x)       extern void __test_##x(void)    //测试用例外部声明
-    #define __IMPLEMENT_TEST(x)     static void __test_##x(void)    //测试用例实体
+    #define __DECLARE_TEST(x)        void __test_##x(void);    //测试用例外部声明
+    #define __IMPLEMENT_TEST(x)      void __test_##x(void)    //测试用例实体
 
 
     //------------------------------ 测试集     --------------------------------//
