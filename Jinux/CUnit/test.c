@@ -64,10 +64,12 @@
 /*-----------------------------------------------------------------------------
  Section: Global Variables
  ----------------------------------------------------------------------------*/
-__DECLARE_SUITE(sysinfo)
-__DECLARE_SUITE(process)
-__DECLARE_SUITE(syserr)
-__DECLARE_SUITE(thread)
+//__DECLARE_SUITE(sysinfo)
+//__DECLARE_SUITE(process)
+//__DECLARE_SUITE(syserr)
+//__DECLARE_SUITE(thread)
+
+__DECLARE_SUITE(main)
 
 /*-----------------------------------------------------------------------------
  Section: Local Function Prototypes
@@ -78,6 +80,7 @@ __DECLARE_SUITE(thread)
  Section: Local Variables
  ----------------------------------------------------------------------------*/
 __BEGIN_SUITEMAP_OF_TESTBOOK(windons)
+    __REG_SUITE(main)
 //    __REG_SUITE(sysinfo)
 //    __REG_SUITE(process)
 //    __REG_SUITE(syserr)
