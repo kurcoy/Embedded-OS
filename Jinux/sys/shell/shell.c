@@ -15,14 +15,14 @@
 
 #include <stdio.h>
 #include <string.h>
-//#include <shell.h>
+#include <shell.h>
 //#include <debug.h>
-//#include <taskLib.h>
+#include <task.h>
 //#include <dmnLib.h>
 //#include <logLib.h>
 //#include <ttyLib.h>
 
-#ifdef INCLUDE_SHELL_CMD
+//#ifdef INCLUDE_SHELL_CMD
 /*-----------------------------------------------------------------------------
  Section: Constant Definitions
  ----------------------------------------------------------------------------*/
@@ -197,31 +197,31 @@ readline(void)
     //fflush(stdout);
     while (TRUE)
     {
-        if (theRebootSignal)
-        {
-            return FALSE;   /* 快速推出任务 */
-        }
-        dmn_sign();
-        taskDelay(MS2TICK(10));
+//        if (theRebootSignal)
+//        {
+//            return FALSE;   /* 快速推出任务 */
+//        }
+//        dmn_sign();
+//        taskDelay(MS2TICK(10));
 
         // 检测输入
-        if (consoleFd == 0xffffffff)
-        {
-            extern int32_t bsp_getchar(void);
-            if ((c = bsp_getchar()) == 0)
-            {
-                taskDelay(MS2TICK(100));
-                continue;
-            }
-        }
-        else
-        {
-            if (ttyRead(consoleFd, &c, 1) == 0)
-            {
-                taskDelay(MS2TICK(100));
-                continue;
-            }
-        }
+//        if (consoleFd == 0xffffffff)
+//        {
+//            extern int32_t bsp_getchar(void);
+//            if ((c = bsp_getchar()) == 0)
+//            {
+//                taskDelay(MS2TICK(100));
+//                continue;
+//            }
+//        }
+//        else
+//        {
+//            if (ttyRead(consoleFd, &c, 1) == 0)
+//            {
+//                taskDelay(MS2TICK(100));
+//                continue;
+//            }
+//        }
 
         //bsp_putchar(c);
         // 处理输入字符
@@ -546,12 +546,13 @@ SHELL_CMD(help, CFG_MAXARGS, do_help, "Print this list\r\n");
 static void
 shell_loop(void)
 {
-    if (OK != dmn_register())
-    {
-        return;
-    }
+//    if (OK != dmn_register())
+//    {
+//        return;
+//    }
 
-    FOREVER
+//    FOREVER
+    while(1)
     {
         if (readline())
         {
@@ -560,7 +561,7 @@ shell_loop(void)
             SHELL_PRINTF(prompt);
         }
     }
-    dmn_unregister();
+//    dmn_unregister();
 }
 
 /**
@@ -584,11 +585,11 @@ shell_init(void)
     shellTaskId = taskSpawn("shell", TASK_PRIORITY_SHELL, shellstack,
             TASK_STK_SIZE_SHELL, (OSFUNCPTR)shell_loop, 0);
 
-    D_ASSERT(shellTaskId >= 0);
+//    D_ASSERT(shellTaskId >= 0);
     return OK;
 }
 
-#endif
+//#endif
 
 /**
 * @}
