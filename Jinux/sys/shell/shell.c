@@ -42,7 +42,7 @@
 #ifndef CFG_CBSIZE
 # define CFG_CBSIZE                (50u)    /**< 命令行字节数 */
 #endif
-#define SHELL_PRINTF                printf          /**< 字符串输出 */
+
 
 /*-----------------------------------------------------------------------------
  Section: Global Variables
@@ -490,62 +490,6 @@ print_usage(cmd_tbl_t *pcmd)
 
 /**
  ******************************************************************************
- * @brief   打印帮助信息help
- * @retval  None
- ******************************************************************************
- */
-static uint32_t
-help(void)
-{
-    uint8_t *usage;
-    cmd_tbl_t *cmdtptemp;
-
-    SHELL_PRINTF("\n");
-    /* print short help (usage) */
-    for (cmdtptemp = &__shell_cmd_start; cmdtptemp != &__shell_cmd_end;
-            cmdtptemp++)
-    {
-        usage = (uint8_t *)cmdtptemp->name;
-        if (usage == NULL)
-        {
-            continue;
-        }
-        SHELL_PRINTF((char*) usage);
-        SHELL_PRINTF("\r\t\t\t\t ");
-        usage = (uint8_t *)cmdtptemp->usage;
-        /* allow user abort */
-        if (usage == NULL)
-        {
-            continue;
-        }
-        SHELL_PRINTF((char*) usage);
-    }
-
-    return 0;
-}
-
-/**
- ******************************************************************************
- * @brief   显示帮助提示信息
- * @param[in]  *cmdtp   : shell命令信息
- * @param[in]  argc     : 命令行参数数量
- * @param[in]  *argv[]  : 命令行参数内容
- *
- * @retval  命令执行状态
- ******************************************************************************
- */
-static uint32_t
-do_help(const cmd_tbl_t * cmdtp,
-        uint32_t argc,
-        const char *argv[])
-{
-    return help();
-}
-
-SHELL_CMD(help, CFG_MAXARGS, do_help, "Print this list\r\n");
-
-/**
- ******************************************************************************
  * @brief   shell任务执行体
  * @return  None
  ******************************************************************************
@@ -578,6 +522,7 @@ shell_loop(void)
  * @retval  ERROR : 失败
  ******************************************************************************
  */
+//typedef
 status_t
 shell_init(void)
 {
