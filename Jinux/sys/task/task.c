@@ -55,7 +55,7 @@ __CLEAN_SUITE(task)  {return 0;}
 __DECLARE_TEST(taskSpawn)
 
 __BEGIN_TESTMAP_OF_SUITE(task)
-__REG_TEST(taskSpawn)
+//__REG_TEST(taskSpawn)
 __END_TESTMAP()
 #endif
 
@@ -127,26 +127,25 @@ taskSpawn(
 
 #ifdef __WHITEBOX_TEST
 
-void shell_loop()
-{
-    while(1)
-    {
-        printf("jjj\n");
-        Sleep(1000);
-    }
-}
-__IMPLEMENT_TEST(taskSpawn)
-{
-    CU_PASS("");
-
-    static TASK_ID shellTaskId = -1;
-    static uint32_t shellstack[100 / 4];
-
-    printf("taskSpawn\n");
-    shellTaskId = taskSpawn("shell", 0, shellstack,
-            shellstack, (OSFUNCPTR)shell_loop, 0);
-
-}
+//void shell_loop()
+//{
+//    while(1)
+//    {
+//    	printf("jjj\n");
+//        Sleep(5000);
+//    }
+//}
+//__IMPLEMENT_TEST(taskSpawn)
+//{
+//    CU_PASS("");
+//
+//    static TASK_ID shellTaskId = -1;
+//    static uint32_t shellstack[100 / 4];
+//
+//    printf("taskSpawn\n");
+//    shellTaskId = taskSpawn("shell", 0, shellstack,
+//            shellstack, (OSFUNCPTR)shell_loop, 0);
+//}
 #endif
 
 

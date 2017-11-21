@@ -192,16 +192,14 @@ main(
 //    usrInit();
 
     puts("_______________start_________________________");
-    // __DO_WHITEBOX_TEST();
+	__DO_WHITEBOX_TEST();
     puts("_______________end_________________________");
-    extern status_t
-    shell_init(void);
-    shell_init();
 
-    while(1);
-    {
-       Sleep(1000);
-    }
+//    extern status_t
+//    shell_init(void);
+//    shell_init();
+
+    server();
     return EXIT_SUCCESS;
 }
 

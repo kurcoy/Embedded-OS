@@ -70,7 +70,7 @@
 //__DECLARE_SUITE(thread)
 
 __DECLARE_SUITE(main)
-__DECLARE_SUITE(task)
+//__DECLARE_SUITE(task)
 
 
 /*-----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ __DECLARE_SUITE(task)
  Section: Local Variables
  ----------------------------------------------------------------------------*/
 __BEGIN_SUITEMAP_OF_TESTBOOK(sys)
-    __REG_SUITE(task)
+//    __REG_SUITE(task)
 __END_SUITEMAP()
 
 __BEGIN_SUITEMAP_OF_TESTBOOK(other)
