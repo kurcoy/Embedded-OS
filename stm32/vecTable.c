@@ -36,6 +36,10 @@ typedef union
 /*-----------------------------------------------------------------------------
  Section: Global Function Prototypes
  ----------------------------------------------------------------------------*/
+
+extern void
+main(void);
+
 void
 resetRoutine(void)
 {
