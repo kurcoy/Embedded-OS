@@ -18,7 +18,7 @@
 #define BOARD_STM32F4_ALENTEK       (2u)    //
 #define BOARD_WINDOWS               (3u)    //
 
-#define BOARD_BUILD_VER BOARD_STM32F4_ALENTEK
+#define BOARD_BUILD_VER BOARD_STM32F3_Wildfire
 
 #if (BOARD_BUILD_VER == BOARD_STM32F3_Wildfire)
    #define BSP_VER  "Wiledfire"
