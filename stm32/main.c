@@ -77,31 +77,31 @@ const VOIDFUNCPTR vector_table[] =
 /*-----------------------------------------------------------------------------
  Section: Local Variables
  ----------------------------------------------------------------------------*/
-static volatile uint32_t systime = 0u; /* 运行时间(ms) */
+//static volatile uint32_t systime = 0u; /* 运行时间(ms) */
 
 /*-----------------------------------------------------------------------------
  Section: Import Function Prototypes
  ----------------------------------------------------------------------------*/
-extern status_t
-uart_check(void);
-
-extern bool_e
-is_in_cmd_proc(void);
-
-extern bool_e
-is_in_flash_proc(void);
-
-extern status_t
-flash_check(void);
+//extern status_t
+//uart_check(void);
+//
+//extern bool_e
+//is_in_cmd_proc(void);
+//
+//extern bool_e
+//is_in_flash_proc(void);
+//
+//extern status_t
+//flash_check(void);
 
 /*-----------------------------------------------------------------------------
  Section: Local Function Prototypes
  ----------------------------------------------------------------------------*/
-static void
-show_ver(void);
-
-static void
-light_shine(void);
+//static void
+//show_ver(void);
+//
+//static void
+//light_shine(void);
 
 /*-----------------------------------------------------------------------------
  Section: Function Definitions
@@ -159,23 +159,49 @@ dummy(void)
 {
     return;
 }
-
+#include "led.h"
+void Delay( int nCount)	 //简单的延时函数
+{
+	for(; nCount != 0; nCount--);
+}
 /**
  ******************************************************************************
  * @brief   boot主程序
  * @return  None
  ******************************************************************************
  */
+void SystemInit (void);
 static void
 sxmain(void)
 {
-
+SystemInit ();
 
 //    hw_init();      /* 硬件初始化 */
 //    show_ver();     /* 打印 版本信息 */
 //    uart_check();   /* 检测串口 */
 //    flash_check();  /* 检查flash */
 //    hw_deinit();    /* 恢复硬件状态 */
+
+/* LED 端口初始化 */
+LED_GPIO_Config();
+
+while (1)
+{
+	LED1( ON );			  // 亮
+	Delay(0x0FFFEF);
+	LED1( OFF );		  // 灭
+
+//	LED2( ON );
+//	Delay(0x0FFFEF);
+//	LED2( OFF );
+//
+//	LED3( ON );
+//	Delay(0x0FFFEF);
+//	LED3( OFF );
+}
+
+
+
 
     jump_to_app();  /* 跳转到应用程序 */
 }
