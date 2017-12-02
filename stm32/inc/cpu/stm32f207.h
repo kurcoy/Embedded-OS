@@ -1,0 +1,7 @@
+#include "stm32f2xx/stm32f2xx.h"
+#include "stm32f2xx/stm32f2xx_flash.h"
+#include "stm32f2xx/stm32f2xx_gpio.h"
+#include "stm32f2xx/stm32f2xx_iwdg.h"
+#include "stm32f2xx/stm32f2xx_rcc.h"
+#include "stm32f2xx/stm32f2xx_spi.h"
+#include "stm32f2xx/stm32f2xx_usart.h"

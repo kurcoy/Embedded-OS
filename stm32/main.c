@@ -169,11 +169,14 @@ dummy(void)
 static void
 sxmain(void)
 {
+
+
 //    hw_init();      /* 硬件初始化 */
 //    show_ver();     /* 打印 版本信息 */
 //    uart_check();   /* 检测串口 */
 //    flash_check();  /* 检查flash */
 //    hw_deinit();    /* 恢复硬件状态 */
+
     jump_to_app();  /* 跳转到应用程序 */
 }
 
