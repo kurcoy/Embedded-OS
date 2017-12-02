@@ -180,27 +180,24 @@ SystemInit ();
 //    flash_check();  /* 检查flash */
 //    hw_deinit();    /* 恢复硬件状态 */
 
-/* LED 端口初始化 */
-LED_GPIO_Config();
+    /* LED 端口初始化 */
+    LED_GPIO_Config();
 
-while (1)
-{
-	LED1( ON );			  // 亮
-	Delay(0x0FFFEF);
-	LED1( OFF );		  // 灭
-	Delay(0x0FFFEF);
+    while (1)
+    {
+        LED1( ON );			  // 亮
+        Delay(0x0FFFEF);
+        LED1( OFF );		  // 灭
+        Delay(0x0FFFEF);
 
-//	LED2( ON );
-//	Delay(0x0FFFEF);
-//	LED2( OFF );
-//
-//	LED3( ON );
-//	Delay(0x0FFFEF);
-//	LED3( OFF );
-}
-
-
-
+    //	LED2( ON );
+    //	Delay(0x0FFFEF);
+    //	LED2( OFF );
+    //
+    //	LED3( ON );
+    //	Delay(0x0FFFEF);
+    //	LED3( OFF );
+    }
 
     jump_to_app();  /* 跳转到应用程序 */
 }
