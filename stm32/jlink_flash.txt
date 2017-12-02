@@ -1,7 +1,7 @@
 h
 speed auto
 exec device = STM32F103VE
-loadbin ./Debug/stm32.bin 0x800c000
+loadbin ./Debug/stm32.bin 0x08000000
 r
 g
 qc

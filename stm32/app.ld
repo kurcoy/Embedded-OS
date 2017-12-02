@@ -1,13 +1,13 @@
 /* Entry Point */
 ENTRY(resetRoutine)
 
-cstack_top = 0x20020000;
+cstack_top = 0x20010000;
 cstack_size = 0x400;
 
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x0800c000, LENGTH = 464K
-    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 128K
+    FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 512K
+    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 64K
 }
     
 SECTIONS
