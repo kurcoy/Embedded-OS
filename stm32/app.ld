@@ -1,5 +1,5 @@
 /* Entry Point */
-ENTRY(resetRoutine)
+/*ENTRY(resetRoutine)*/
 
 cstack_top = 0x20010000;
 cstack_size = 0x400;

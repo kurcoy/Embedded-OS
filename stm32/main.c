@@ -160,7 +160,7 @@ dummy(void)
     return;
 }
 #include "led.h"
-void Delay( int nCount)	 //简单的延时函数
+void Delay( volatile int nCount)	 //简单的延时函数
 {
 	for(; nCount != 0; nCount--);
 }
@@ -190,6 +190,7 @@ while (1)
 	LED1( ON );			  // 亮
 	Delay(0x0FFFEF);
 	LED1( OFF );		  // 灭
+	Delay(0x0FFFEF);
 
 //	LED2( ON );
 //	Delay(0x0FFFEF);
