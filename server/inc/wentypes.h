@@ -51,9 +51,9 @@
 //#define true    1
 //#endif
 //
-//#ifndef NULL
-//#define NULL ((void *)0)
-//#endif
+#ifndef NULL
+#define NULL ((void *)0)
+#endif
 //
 //#define __I     volatile const  /*!< defines 'read only' permissions      */
 //#define __O     volatile        /*!< defines 'write only' permissions     */
