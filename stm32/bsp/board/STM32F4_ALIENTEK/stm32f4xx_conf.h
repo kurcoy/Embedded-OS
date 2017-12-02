@@ -29,7 +29,8 @@
 #ifndef __STM32F4xx_CONF_H
 #define __STM32F4xx_CONF_H
 
-#if (0)
+#include <bsp_config.h>
+#if (BOARD_BUILD_VER == BOARD_STM32F4_ALENTEK)
 #define HAL_GPIO_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED
 #define HAL_SYSTEM_ENABLED
@@ -50,15 +51,15 @@
 //#include "stm32f4xx_flash.h"
 
 #ifdef HAL_GPIO_MODULE_ENABLED
-#include "stm32f4xx_gpio.h"
+#include "cpu/stm32f4xx_gpio.h"
 #endif
 
 //#include "stm32f4xx_i2c.h"
 //#include "stm32f4xx_iwdg.h"
 //#include "stm32f4xx_pwr.h"
 
-#ifdef HAL_GPIO_MODULE_ENABLED
-#include "stm32f4xx_rcc.h"
+#ifdef HAL_RCC_MODULE_ENABLED
+#include "cpu/stm32f4xx_rcc.h"
 #endif
 
 //#include "stm32f4xx_rtc.h"
@@ -96,13 +97,13 @@
 #endif /* STM32F427_437xx */
 
 #if defined (STM32F40_41xxx)
-#include "stm32f4xx_cryp.h"
-#include "stm32f4xx_hash.h"
-#include "stm32f4xx_rng.h"
-#include "stm32f4xx_can.h"
-#include "stm32f4xx_dac.h"
-#include "stm32f4xx_dcmi.h"
-#include "stm32f4xx_fsmc.h"
+//#include "stm32f4xx_cryp.h"
+//#include "stm32f4xx_hash.h"
+//#include "stm32f4xx_rng.h"
+//#include "stm32f4xx_can.h"
+//#include "stm32f4xx_dac.h"
+//#include "stm32f4xx_dcmi.h"
+//#include "stm32f4xx_fsmc.h"
 #endif /* STM32F40_41xxx */
 
 #if defined (STM32F411xE)

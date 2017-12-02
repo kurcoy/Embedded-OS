@@ -1,6 +1,6 @@
 h
 speed auto
-exec device = STM32F103VE
+exec device = STM32F407ZG
 loadbin ./Debug/stm32.bin 0x08000000
 r
 g

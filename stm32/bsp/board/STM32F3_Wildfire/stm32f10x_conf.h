@@ -23,7 +23,8 @@
 #ifndef __STM32F10x_CONF_H
 #define __STM32F10x_CONF_H
 
-#if (1)
+#include <bsp_config.h>
+#if (BOARD_BUILD_VER == BOARD_STM32F3_Wildfire)
 #define SYSTEM_STM32F10X_ENABLED
 #define HAL_GPIO_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED

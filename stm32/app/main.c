@@ -64,7 +64,6 @@
 /*-----------------------------------------------------------------------------
  Section: Function Definitions
  ----------------------------------------------------------------------------*/
-void SystemInit (void);
 
 void
 main(void)
@@ -86,12 +85,12 @@ main(void)
         LED1( OFF );		  // Ãð
         Delay(0x0FFFEF);
 
-    //	LED2( ON );
-    //	Delay(0x0FFFEF);
-    //	LED2( OFF );
+    	LED2( ON );
+    	Delay(0x0FFFEF);
+    	LED2( OFF );
     //
     //	LED3( ON );
-    //	Delay(0x0FFFEF);
+    	Delay(0x0FFFEF);
     //	LED3( OFF );
     }
 }
